@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace Game.Runtime
 {
-    public class Managers : Singleton<Managers>
+    public enum PanelId
     {
-        //Marker class
+        None = 0,
+        Currency = 1
     }
 }
