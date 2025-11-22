@@ -7,7 +7,7 @@ namespace Game.Runtime
 {
     public class PlayerMovement : MonoBehaviour
     {
-        public bool IsEnabled { get; private set; } = true;
+        public bool IsEnabled { get; private set; }
 
         [Header("Movement Parameters")] 
         [SerializeField] private float movementSpeed = 15f;

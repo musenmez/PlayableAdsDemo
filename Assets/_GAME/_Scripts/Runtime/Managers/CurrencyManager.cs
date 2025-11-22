@@ -13,7 +13,7 @@ namespace Game.Runtime
 
         [SerializeField] private CurrencyDataSO currencyData;
 
-        private void Awake()
+        public void Initialize()
         {
             CurrencyAmount = currencyData.InitialCurrency;
         }

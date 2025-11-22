@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace Game.Runtime
 {
-    public class InitialState : GameStateBase
+    public class InGameState : GameStateBase
     {
         public override void Enter()
         {
-            CurrencyManager.Instance.Initialize();
-            GameManager.Instance.SetState(GameStateId.InGame);
+            CameraManager.Instance.ActivateCamera(CameraId.InGame);
+            Player.Instance.Movement.EnableMovement();
         }
     }
 }

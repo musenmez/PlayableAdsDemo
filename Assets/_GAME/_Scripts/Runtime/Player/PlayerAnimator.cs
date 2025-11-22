@@ -16,7 +16,7 @@ namespace Game.Runtime
         private void SetSpeed()
         {
             var input = new Vector3(UIManager.Instance.Joystick.Horizontal, 0f, UIManager.Instance.Joystick.Vertical);
-            animator.SetFloat(AnimationHashes.Speed, input.sqrMagnitude);
+            animator.SetFloat(AnimationHashes.Speed, Player.Instance.Movement.IsEnabled ? input.sqrMagnitude : 0);
         }
     }
 }

@@ -6,6 +6,9 @@ namespace Game.Runtime
 {
     public enum GameStateId
     {
-        Initial = 0
+        Initial = 0,
+        InGame = 1,
+        SecondFloorReveal = 2,
+        Painting = 3
     }
 }
