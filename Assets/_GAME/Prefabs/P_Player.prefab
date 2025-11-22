@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4487983670631862703}
   - component: {fileID: 2228744404607377609}
   - component: {fileID: 381192626510352977}
+  - component: {fileID: 8246820397384062732}
   m_Layer: 0
   m_Name: P_Player
   m_TagString: Untagged
@@ -62,9 +63,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 1
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 3
+  m_CollisionDetection: 0
 --- !u!136 &3037657016277261195
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -155,6 +156,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa6ca7c9b30c71429fb23f7bc5e1993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8246820397384062732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5399635372951756665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6063a39fcdb43c84cbf51ed94dc6a625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 7380253205275090209}
+  movement: {fileID: 2228744404607377609}
 --- !u!1 &8648920083631127827
 GameObject:
   m_ObjectHideFlags: 0

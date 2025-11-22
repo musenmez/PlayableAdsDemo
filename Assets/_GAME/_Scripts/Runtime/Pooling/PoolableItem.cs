@@ -12,7 +12,7 @@ namespace Game.Runtime
         public bool IsActive { get; private set; }
         public Vector3 DefaultScale { get; protected set; }
 
-        [field : SerializeField] public PoolId PoolId { get; protected set; } 
+        [field : Header("Pool Options"), SerializeField] public PoolId PoolId { get; protected set; } 
         [SerializeField] protected Component poolComponent;
 
         protected virtual void Awake()

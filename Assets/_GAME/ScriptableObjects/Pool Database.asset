@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Pool Database
   m_EditorClassIdentifier: 
   Pools:
-  - Prefab: {fileID: 2756798207086621447, guid: aeebcdaca65a91846a702d51ce2af1f0, type: 3}
+  - Prefab: {fileID: 8541663551700070289, guid: aeebcdaca65a91846a702d51ce2af1f0, type: 3}
     InitialSize: 40

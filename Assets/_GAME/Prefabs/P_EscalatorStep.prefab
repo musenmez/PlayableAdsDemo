@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3765514351091398732}
-  - component: {fileID: 2756798207086621447}
+  - component: {fileID: 8541663551700070289}
   m_Layer: 0
   m_Name: P_EscalatorStep
   m_TagString: Untagged
@@ -148,7 +148,7 @@ Transform:
   - {fileID: 5830433880721039269}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2756798207086621447
+--- !u!114 &8541663551700070289
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,8 +157,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 9036344957984772192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f627de340f9d3143be24a02c17f4a35, type: 3}
+  m_Script: {fileID: 11500000, guid: a1ee3343f0ecae147b35bf89ee23682c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <PoolId>k__BackingField: 1
-  poolComponent: {fileID: 3765514351091398732}
+  poolComponent: {fileID: 8541663551700070289}
+  passengerPoint: {fileID: 5830433880721039269}
