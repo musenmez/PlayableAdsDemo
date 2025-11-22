@@ -8,6 +8,7 @@ namespace Game.Runtime
     {
         public override void Enter()
         {
+            PoolingManager.Instance.Initialize();
             CurrencyManager.Instance.Initialize();
             GameManager.Instance.SetState(GameStateId.InGame);
         }
