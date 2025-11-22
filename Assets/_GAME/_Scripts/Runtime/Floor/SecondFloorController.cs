@@ -11,6 +11,8 @@ namespace Game.Runtime
         
         [SerializeField] private List<PropRevealConfig> props = new();
 
+        private const float MIN_SCALE = 0.01f;
+
         private void Awake()
         {
             Instance = this;
@@ -50,7 +52,7 @@ namespace Game.Runtime
         {
             foreach (var prop in props)
             {
-                prop.Body.transform.localScale = Vector3.zero;
+                prop.Body.transform.localScale = Vector3.one * MIN_SCALE;
                 prop.Body.SetActive(false);
             }
         }

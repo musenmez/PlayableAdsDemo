@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c2596a4c4de814f8e4cd9622d9b0db, type: 3}
   m_Name: Pool Database
   m_EditorClassIdentifier: 
-  Pools: []
+  Pools:
+  - Prefab: {fileID: 2756798207086621447, guid: aeebcdaca65a91846a702d51ce2af1f0, type: 3}
+    InitialSize: 40
