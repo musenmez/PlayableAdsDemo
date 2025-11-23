@@ -18,6 +18,11 @@ namespace Game.Runtime
         [SerializeField] private CharacterController characterController;
 
         private const float MOVEMENT_THRESHOLD = 0.01f;
+        private const float MOVEMENT_ACCELERATION = 10f;
+        private const float ROTATION_ACCELERATION = 10f;
+        
+        private float _currentMovementSpeed;
+        private float _currentRotationSpeed;
         
         private void Update()
         {
@@ -37,17 +42,36 @@ namespace Game.Runtime
         private void Movement()
         {
             if (!IsEnabled)
+            {
+                ResetSpeeds();
                 return;
+            }
            
             var input = new Vector3(UIManager.Instance.Joystick.Horizontal, 0f, UIManager.Instance.Joystick.Vertical);
             if (input.sqrMagnitude < MOVEMENT_THRESHOLD)
+            {
+                ResetSpeeds();
                 return;
-
-            var moveDirection =  movementSpeed * input.normalized;
+            }
+            
+            Acceleration();
+            var moveDirection =  _currentMovementSpeed * input.normalized;
             characterController.SimpleMove(moveDirection);
             
             var targetRot = Quaternion.LookRotation(moveDirection);
-            body.rotation = Quaternion.Slerp(body.rotation, targetRot, rotationSpeed * Time.deltaTime);
+            body.rotation = Quaternion.Slerp(body.rotation, targetRot, _currentRotationSpeed * Time.deltaTime);
+        }
+
+        private void Acceleration()
+        {
+            _currentMovementSpeed = Mathf.Lerp(_currentMovementSpeed, movementSpeed, Time.deltaTime * MOVEMENT_ACCELERATION);
+            _currentRotationSpeed = Mathf.Lerp(_currentRotationSpeed, rotationSpeed, Time.deltaTime * ROTATION_ACCELERATION);
+        }
+
+        private void ResetSpeeds()
+        {
+            _currentMovementSpeed = 0;
+            _currentRotationSpeed = 0;
         }
     }
 }

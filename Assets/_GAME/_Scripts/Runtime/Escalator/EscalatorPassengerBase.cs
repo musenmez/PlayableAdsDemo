@@ -30,9 +30,7 @@ namespace Game.Runtime
         {
             IsUsingEscalator = false;
             var floorHeight = _step.Escalator.Direction == EscalatorDirection.Up ? _step.Escalator.TopFloorHeight : _step.Escalator.BottomFloorHeight;
-            var currentPosition = TargetTransform.position;
-            currentPosition.y = floorHeight;
-            TargetTransform.position = currentPosition;
+            TargetTransform.DOMoveY(floorHeight, 0.1f).SetEase(Ease.Linear);
         }
     }
 }
