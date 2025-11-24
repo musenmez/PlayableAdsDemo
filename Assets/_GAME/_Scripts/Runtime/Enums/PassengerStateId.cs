@@ -4,11 +4,10 @@ using UnityEngine;
 
 namespace Game.Runtime
 {
-    public enum PoolId
+    public enum PassengerStateId
     {
         None = 0,
-        EscalatorStep = 1,
-        Passenger = 2,
-        Baggage = 3
+        Initial = 1,
+        BaggageDeposit = 2
     }
 }

@@ -4,11 +4,8 @@ using UnityEngine;
 
 namespace Game.Runtime
 {
-    public enum PoolId
+    public class PassengerBaggageDepositState : PassengerStateBase
     {
-        None = 0,
-        EscalatorStep = 1,
-        Passenger = 2,
-        Baggage = 3
+        
     }
 }
