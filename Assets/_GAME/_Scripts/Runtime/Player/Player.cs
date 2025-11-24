@@ -13,6 +13,7 @@ namespace Game.Runtime
         public bool IsUsingEscalator { get; private set; }
         
         [field : SerializeField] public PlayerMovement Movement { get; private set; }
+        [field : SerializeField] public PlayerBaggageHandler BaggageHandler { get; private set; }
 
         private void Awake()
         {

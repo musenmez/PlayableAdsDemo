@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Movement>k__BackingField: {fileID: 2228744404607377609}
+  <BaggageHandler>k__BackingField: {fileID: 2095270885153214676}
 --- !u!114 &2228744404607377609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a099e3162b5b14991f66300669d961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baggagePivotPoint: {fileID: 0}
+  baggagePivotPoint: {fileID: 707211198340752689}
 --- !u!1 &8648920083631127827
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +243,7 @@ Transform:
   m_GameObject: {fileID: 9039521630462613986}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.021, z: 0.815}
+  m_LocalPosition: {x: 0, y: 2.021, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

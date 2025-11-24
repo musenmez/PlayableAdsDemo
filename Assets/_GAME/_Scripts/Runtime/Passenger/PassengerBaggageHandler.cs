@@ -10,12 +10,20 @@ namespace Game.Runtime
         private Passenger Passenger => _passenger == null ? _passenger = GetComponentInParent<Passenger>() : _passenger;
         
         [SerializeField] private Transform baggageParent;
+        
+        private Baggage _baggage;
 
         public void CreateBaggage()
         {
-            var baggage = PoolingManager.Instance.GetInstance(PoolId.Baggage, baggageParent.position, baggageParent.rotation).transform;
-            baggage.SetParent(baggageParent);
+            _baggage = PoolingManager.Instance.GetInstance(PoolId.Baggage, baggageParent.position, baggageParent.rotation).GetPoolComponent<Baggage>();
+            _baggage.transform.SetParent(baggageParent);
             Passenger.Animator.SetLayerWeight(PassengerAnimator.CARRY_LAYER, 1);
+        }
+
+        public void DepositBaggage()
+        {
+            Player.Instance.BaggageHandler.TakeBaggage(_baggage);
+            _baggage = null;
         }
     }
 }

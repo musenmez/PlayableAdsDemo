@@ -35,6 +35,17 @@ namespace Game.Runtime
             return lineInfo.Index == 0 ? lineStartPoint : _passengerLineInfos[lineInfo.Index - 1].Passenger.transform;
         }
 
+        public Passenger GetAvailablePassenger()
+        {
+            return IsPassengerAvailable() == false ? null : _passengerLineInfos[0].Passenger;
+        }
+
+        public bool IsPassengerAvailable()
+        {
+            return _passengerLineInfos.Count != 0 &&
+                   _passengerLineInfos[0].Passenger.Movement.IsReached(lineStartPoint.position);
+        }
+
         private void SortPassengers()
         {
             for (var i = 0; i < _passengerLineInfos.Count; i++)

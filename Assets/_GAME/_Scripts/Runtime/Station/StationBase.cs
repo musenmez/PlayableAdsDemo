@@ -5,48 +5,24 @@ using UnityEngine;
 
 namespace Game.Runtime
 {
-    public abstract class StationBase : MonoBehaviour
+    public abstract class StationBase : MonoBehaviour, IInteractable
     {
-        [field : Header("Station Base Settings"), SerializeField] public StationId StationId { get; protected set; }
-        [SerializeField] private float progressDelay;
-
-        protected WaitForSeconds _progressDelay;
-        protected Coroutine _progressCoroutine;
-
-        protected virtual void Awake()
-        {
-            _progressDelay = new WaitForSeconds(progressDelay);
-        }
-
-        public virtual void StartProgress(object parameter)
-        {
-            StopProgressCoroutine();
-            _progressCoroutine = StartCoroutine(ProgressCo());
-        }
-
-        public virtual void StopProgress()
-        {
-            StopProgressCoroutine();
-        }
-
-        protected IEnumerator ProgressCo()
-        {
-            while (true)
-            {
-                StationBehaviour();
-                yield return _progressDelay;
-            }
-        }
-
-        protected virtual void StopProgressCoroutine()
-        {
-            if (_progressCoroutine != null)
-            {
-                StopCoroutine(_progressCoroutine);
-            }
-        }
+        public bool IsInteractable { get; } = true;
         
-        protected abstract void StationBehaviour();
+        [field : Header("Station Settings"), SerializeField] public StationId StationId { get; protected set; }
+
+        public virtual void Interact(Interactor interactor)
+        {
+            StartStation();
+        }
+
+        public virtual void InteractorExit(Interactor interactor)
+        {
+            StopStation();
+        }
+
+        protected abstract void StartStation();
         
+        protected virtual void StopStation(){}
     }
 }
