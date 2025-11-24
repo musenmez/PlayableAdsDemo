@@ -26,9 +26,6 @@ namespace Game.Runtime
         {
             while (true)
             {
-                // if (!IsPassengerAvailable())
-                //     yield return null;
-
                 DepositBaggage();
                 yield return DELAY;
             }

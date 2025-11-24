@@ -8,8 +8,8 @@ namespace Game.Runtime
     {
         None = 0,
         BaggageAdmission = 1,
-        BaggageLoading = 2,
-        BaggageXray = 3,
+        BaggageTray = 2,
+        BaggageLoading = 3,
         PassengerXray = 4
     }
 }

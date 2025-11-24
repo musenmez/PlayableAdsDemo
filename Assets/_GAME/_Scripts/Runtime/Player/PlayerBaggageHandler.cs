@@ -9,15 +9,20 @@ namespace Game.Runtime
     {
         [SerializeField] private Transform baggagePivotPoint;
 
-        private List<BaggagePair> _baggagePairs = new();
-        private List<Transform> _baggageHolders = new();
+        private readonly List<BaggagePair> _baggagePairs = new();
+        private readonly List<Transform> _baggageHolders = new();
 
         private const float HOLDER_SPACING = 0.625f;
         private const float MOVEMENT_LERP = 50f;
         private const float ROTATION_LERP = 30f;
         private const float SCALE_EFFECT_DELAY = 0.05f;
         
-        public void TakeBaggage(Baggage baggage)
+        private void Update()
+        {
+            SmoothFollow();
+        }
+        
+        public void AddBaggage(Baggage baggage)
         {
             if (_baggagePairs.Count == 0)
                 Player.Instance.Animator.SetLayerWeight(PlayerAnimator.CARRY_LAYER, 1f,0.1f);
@@ -25,12 +30,24 @@ namespace Game.Runtime
             var pair = CreatePair(baggage);
             PlacementTween(pair);
         }
-
-        private void Update()
+        
+        /// <summary>
+        /// Returns null if baggage placement is not finished
+        /// </summary>
+        public BaggagePair PopBaggage()
         {
-            SmoothFollow();
+            if (_baggagePairs.Count == 0 || _baggagePairs[^1].IsPlaced == false)
+                return null;
+            
+            var baggagePair = _baggagePairs[^1];
+            _baggagePairs.RemoveAt(_baggagePairs.Count - 1);
+            
+            if (_baggagePairs.Count == 0)
+                Player.Instance.Animator.SetLayerWeight(PlayerAnimator.CARRY_LAYER, 0f,0.1f);
+            
+            return baggagePair;
         }
-
+        
         private BaggagePair CreatePair(Baggage baggage)
         {
             var holder = GetHolder(_baggagePairs.Count);
@@ -43,18 +60,21 @@ namespace Game.Runtime
 
         private Transform GetHolder(int index)
         {
+            var holderPosition = baggagePivotPoint.position + HOLDER_SPACING * index * Vector3.up;
             if (_baggageHolders.Count <= index)
             {
                 var baggageHolder = new GameObject($"Baggage Holder {_baggagePairs.Count + 1}")
                 {
                     transform =
                     {
-                        position = baggagePivotPoint.position + HOLDER_SPACING * index * Vector3.up,
+                        position = holderPosition,
                         rotation = baggagePivotPoint.rotation
                     }
                 };
                 _baggageHolders.Add(baggageHolder.transform);
             }
+
+            _baggageHolders[index].transform.position = holderPosition;
             return _baggageHolders[index];
         }
 
@@ -103,7 +123,7 @@ namespace Game.Runtime
     {
         public bool IsPlaced;
         public Transform Holder;
-        public Baggage Baggage;
+        public readonly Baggage Baggage;
 
         public BaggagePair(Transform holder, Baggage baggage, bool isPlaced = false)
         {
