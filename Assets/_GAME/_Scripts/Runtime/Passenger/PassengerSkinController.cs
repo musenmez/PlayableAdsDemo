@@ -8,7 +8,7 @@ namespace Game.Runtime
     public class PassengerSkinController : MonoBehaviour
     {
         [SerializeField] private SkinnedMeshRenderer skinRenderer;
-        [SerializeField] private PassengerColorDataSO skinColorData;
+        [SerializeField] private ColorDataSO skinColorData;
 
         private MaterialPropertyBlock _propertyBlock;
         
@@ -16,6 +16,7 @@ namespace Game.Runtime
         {
             _propertyBlock = new MaterialPropertyBlock();
             _propertyBlock.SetColor("_Color", skinColorData.GetRandomSkinColor());
+            skinRenderer.SetPropertyBlock(_propertyBlock);
         }
     }
 }

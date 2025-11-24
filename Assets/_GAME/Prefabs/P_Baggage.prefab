@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8879215996868718869}
   - component: {fileID: 3791348511203154642}
+  - component: {fileID: 1506897463992462805}
   m_Layer: 0
   m_Name: P_Baggage
   m_TagString: Untagged
@@ -47,6 +48,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PoolId>k__BackingField: 3
   poolComponent: {fileID: 8879215996868718869}
+--- !u!114 &1506897463992462805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2766786715581014195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b985a8ba7358c2e4b90c6cdbc6799011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorData: {fileID: 11400000, guid: e267234a5f2034e4581f1ab7e839b3d7, type: 2}
+  baggageRenderer: {fileID: 496842433622341280}
 --- !u!1 &4283641935980563968
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,6 +155,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bf1154c8e8fa7943be33db0658e6854, type: 3}
+--- !u!23 &496842433622341280 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 1bf1154c8e8fa7943be33db0658e6854, type: 3}
+  m_PrefabInstance: {fileID: 1235312507829414436}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1634260564768820687 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1bf1154c8e8fa7943be33db0658e6854, type: 3}
