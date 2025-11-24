@@ -11,7 +11,8 @@ namespace Game.Runtime
         [SerializeField] private float movementSpeed = 10f;
         [SerializeField] private float rotationSpeed = 30f;
 
-        private const float THRESHOLD = 0.05f;
+        private const float MOVEMENT_THRESHOLD = 0.05f;
+        private const float ROTATION_THRESHOLD = 0.01f;
 
         public void MoveTowards(Vector3 targetPosition, float deltaTime)
         {
@@ -21,6 +22,9 @@ namespace Game.Runtime
             transform.position = targetPos;
             
             var moveDirection =  (targetPosition - transform.position).normalized;
+            if (moveDirection.sqrMagnitude < ROTATION_THRESHOLD)
+                return;
+            
             var targetRot = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, rotationSpeed * Time.deltaTime);
         }
@@ -33,7 +37,7 @@ namespace Game.Runtime
         public bool IsReached(Vector3 targetPosition)
         {
             var distance = Vector3.Distance(targetPosition, transform.position);
-            return distance < THRESHOLD;
+            return distance < MOVEMENT_THRESHOLD;
         }
     }
 }

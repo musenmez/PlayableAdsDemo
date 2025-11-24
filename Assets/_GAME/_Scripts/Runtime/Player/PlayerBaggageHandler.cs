@@ -94,7 +94,7 @@ namespace Game.Runtime
                 if(!_baggagePairs[i].IsPlaced) continue;
 
                 _baggagePairs[i].Holder.DOComplete();
-                _baggagePairs[i].Holder.DOPunchScale(Vector3.one * 0.4f, 0.2f).SetEase(Ease.InOutSine).SetDelay(i * SCALE_EFFECT_DELAY);
+                _baggagePairs[i].Holder.DOPunchScale(Vector3.one * 0.3f, 0.2f).SetEase(Ease.InOutSine).SetDelay(i * SCALE_EFFECT_DELAY);
             }
         }
     }
