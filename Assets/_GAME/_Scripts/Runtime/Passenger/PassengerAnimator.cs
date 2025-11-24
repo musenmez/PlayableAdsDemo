@@ -30,7 +30,7 @@ namespace Game.Runtime
             animator.SetTrigger(triggerHash);
         }
         
-        public void SetLayerWeight(int layerIndex, float weight, float duration = 0.25f)
+        public void SetLayerWeight(int layerIndex, float weight, float duration = 0f)
         {
             _layerTween.Kill();
             _layerTween = DOVirtual.Float(animator.GetLayerWeight(layerIndex), weight, duration: duration, (x) => animator.SetLayerWeight(layerIndex, x));

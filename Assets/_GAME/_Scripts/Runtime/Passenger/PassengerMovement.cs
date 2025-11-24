@@ -15,9 +15,7 @@ namespace Game.Runtime
 
         public void MoveTowards(Vector3 targetPosition, float deltaTime)
         {
-            var distance = Vector3.Distance(targetPosition, body.position);
-            if (distance < THRESHOLD)
-                return;
+            if (IsReached(targetPosition)) return;
             
             var targetPos = Vector3.MoveTowards(body.position, targetPosition, movementSpeed * deltaTime);
             transform.position = targetPos;
@@ -25,6 +23,12 @@ namespace Game.Runtime
             var moveDirection =  (targetPosition - transform.position).normalized;
             var targetRot = Quaternion.LookRotation(moveDirection);
             body.rotation = Quaternion.Slerp(body.rotation, targetRot, rotationSpeed * Time.deltaTime);
+        }
+
+        public bool IsReached(Vector3 targetPosition)
+        {
+            var distance = Vector3.Distance(targetPosition, body.position);
+            return distance < THRESHOLD;
         }
     }
 }

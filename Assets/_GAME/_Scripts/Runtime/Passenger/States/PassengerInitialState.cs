@@ -10,9 +10,7 @@ namespace Game.Runtime
         {
             base.EnterState(passenger);
             Passenger.SkinController.SetRandomColor();
-            Passenger.Animator.SetLayerWeight(PassengerAnimator.CARRY_LAYER, 1);
-            Passenger.SetStatus(PassengerStatus.Initial);
-            //Spawn Baggage
+            Passenger.BaggageHandler.CreateBaggage();
             Passenger.SetState(PassengerStateId.BaggageDeposit);
         }
     }

@@ -17,7 +17,7 @@ namespace Game.Runtime
             Instance = this;
         }
 
-        public void SpawnPassengers(int count, float delayPerSpawn = 0.1f)
+        public void SpawnPassengers(int count, float delayPerSpawn = 0.25f)
         {
             if (_spawnCo != null)
                 StopCoroutine(_spawnCo);
