@@ -728,8 +728,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Direction>k__BackingField: 0
-  topPoint: {fileID: 7707052560793016867}
-  bottomPoint: {fileID: 4585138709256312628}
+  <TopPoint>k__BackingField: {fileID: 7707052560793016867}
+  <BottomPoint>k__BackingField: {fileID: 4585138709256312628}
   topTrigger: {fileID: 4379408568017880419}
   bottomTrigger: {fileID: 6323479463956505617}
   <BottomFloorHeight>k__BackingField: 0

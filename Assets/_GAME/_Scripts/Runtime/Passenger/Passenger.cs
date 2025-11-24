@@ -14,11 +14,13 @@ namespace Game.Runtime
         [field : SerializeField] public PassengerAnimator Animator { get; private set; }
         [field : SerializeField] public PassengerMovement Movement { get; private set; }
         [field : SerializeField] public PassengerBaggageHandler BaggageHandler { get; private set; }
+        [field : SerializeField] public PassengerEscalatorHandler EscalatorHandler { get; private set; }
         
         public Dictionary<PassengerStateId, PassengerStateBase> StatesById { get; private set; } = new()
         {
             { PassengerStateId.Initial, new PassengerInitialState() },
             { PassengerStateId.BaggageDeposit, new PassengerBaggageDepositState() },
+            { PassengerStateId.Escalator, new PassengerEscalatorState() },
         };
         
         private void Update()

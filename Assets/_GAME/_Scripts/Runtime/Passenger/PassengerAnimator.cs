@@ -8,6 +8,9 @@ namespace Game.Runtime
 {
     public class PassengerAnimator : MonoBehaviour
     {
+        private Passenger _passenger;
+        private Passenger Passenger => _passenger == null ? _passenger = GetComponentInParent<Passenger>() : _passenger;
+        
         public const int CARRY_LAYER = 1;
         
         [SerializeField] private Animator animator;
@@ -38,7 +41,7 @@ namespace Game.Runtime
         
         private void SetSpeed()
         {
-            var distance = Vector3.Distance(_oldPosition, transform.position);
+            var distance = Passenger.EscalatorHandler.IsUsingEscalator ? 0 : Vector3.Distance(_oldPosition, transform.position);
             animator.SetFloat(AnimationHashes.Speed, distance);
             _oldPosition = transform.position;
         }

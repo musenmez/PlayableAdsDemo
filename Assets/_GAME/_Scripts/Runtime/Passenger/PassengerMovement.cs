@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
+using DG.Tweening;
 using UnityEngine;
+using System;
 
 namespace Game.Runtime
 {
@@ -9,7 +10,6 @@ namespace Game.Runtime
     {
         [SerializeField] private float movementSpeed = 10f;
         [SerializeField] private float rotationSpeed = 30f;
-        [Space, SerializeField] private Transform body;
 
         private const float THRESHOLD = 0.05f;
 
@@ -17,17 +17,22 @@ namespace Game.Runtime
         {
             if (IsReached(targetPosition)) return;
             
-            var targetPos = Vector3.MoveTowards(body.position, targetPosition, movementSpeed * deltaTime);
+            var targetPos = Vector3.MoveTowards(transform.position, targetPosition, movementSpeed * deltaTime);
             transform.position = targetPos;
             
             var moveDirection =  (targetPosition - transform.position).normalized;
             var targetRot = Quaternion.LookRotation(moveDirection);
-            body.rotation = Quaternion.Slerp(body.rotation, targetRot, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, rotationSpeed * Time.deltaTime);
+        }
+
+        public void FollowPath(Vector3[] points, float duration, Action onComplete = null)
+        {
+            transform.DOPath(points, duration, PathType.CatmullRom).SetLookAt(0.001f).SetEase(Ease.Linear).OnComplete(() => onComplete?.Invoke());
         }
 
         public bool IsReached(Vector3 targetPosition)
         {
-            var distance = Vector3.Distance(targetPosition, body.position);
+            var distance = Vector3.Distance(targetPosition, transform.position);
             return distance < THRESHOLD;
         }
     }

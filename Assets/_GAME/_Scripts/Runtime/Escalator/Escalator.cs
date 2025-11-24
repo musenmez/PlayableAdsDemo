@@ -9,8 +9,8 @@ namespace Game.Runtime
     public class Escalator : MonoBehaviour
     {
         [field : SerializeField] public EscalatorDirection Direction { get; private set; }
-        [SerializeField] private Transform topPoint;
-        [SerializeField] private Transform bottomPoint;
+        [field : SerializeField] public Transform TopPoint { get; private set; }
+        [field : SerializeField] public Transform BottomPoint { get; private set; }
         
         [Header("Triggers")]
         [SerializeField] private GameObject topTrigger;
@@ -44,8 +44,8 @@ namespace Game.Runtime
         private void InitializeSteps()
         {
             var spacing = 1f / INITIAL_STEP_COUNT;
-            var start = Direction == EscalatorDirection.Up ? bottomPoint.position : topPoint.position;
-            var end = Direction == EscalatorDirection.Up ? topPoint.position : bottomPoint.position;
+            var start = Direction == EscalatorDirection.Up ? BottomPoint.position : TopPoint.position;
+            var end = Direction == EscalatorDirection.Up ? TopPoint.position : BottomPoint.position;
             
             for (var i = 0; i < INITIAL_STEP_COUNT; i++)
             {
@@ -61,7 +61,7 @@ namespace Game.Runtime
 
             while (true)
             {
-                var spawnPosition = Direction == EscalatorDirection.Up ? bottomPoint.position : topPoint.position;
+                var spawnPosition = Direction == EscalatorDirection.Up ? BottomPoint.position : TopPoint.position;
                 var step = SpawnStep(spawnPosition);
                 StepMovement(step);
                 CheckPassengers(step);
@@ -72,7 +72,7 @@ namespace Game.Runtime
         private EscalatorStep SpawnStep(Vector3 spawnPosition)
         {
             var step = PoolingManager.Instance.GetInstance(PoolId.EscalatorStep, spawnPosition, Quaternion.identity).GetPoolComponent<EscalatorStep>();
-            step.transform.SetParent(topPoint.parent);
+            step.transform.SetParent(TopPoint.parent);
             step.transform.localScale = Vector3.one;
             step.Initialize(this);
             return step;
@@ -80,7 +80,7 @@ namespace Game.Runtime
 
         private void StepMovement(EscalatorStep step)
         {
-            var targetPosition = Direction == EscalatorDirection.Up ? topPoint.localPosition : bottomPoint.localPosition;
+            var targetPosition = Direction == EscalatorDirection.Up ? TopPoint.localPosition : BottomPoint.localPosition;
             step.transform.DOKill();
             step.transform.DOLocalMove(targetPosition, STEP_SPEED).SetSpeedBased(true).SetEase(Ease.Linear).OnComplete(step.CompleteTravel);
         }

@@ -28,7 +28,7 @@ namespace Game.Runtime
         public override void CompleteStation()
         {
             _station.RemovePassenger(_lineInfo);
-            //Trigger next state
+            Passenger.SetState(PassengerStateId.Escalator);
         }
     }
 }

@@ -72,7 +72,7 @@ namespace Game.Runtime
                 }
                 
                 var targetPosition = _baggagePairs[i - 1].Holder.position + Vector3.up * HOLDER_SPACING;
-                _baggagePairs[i].Holder.position = Vector3.Lerp(_baggagePairs[i].Holder.position, targetPosition, Time.deltaTime * MOVEMENT_LERP);
+                _baggagePairs[i].Holder.position = Vector3.Slerp(_baggagePairs[i].Holder.position, targetPosition, Time.deltaTime * MOVEMENT_LERP);
                 _baggagePairs[i].Holder.rotation = Quaternion.Slerp(_baggagePairs[i].Holder.rotation, _baggagePairs[i - 1].Holder.rotation, Time.deltaTime * ROTATION_LERP);
             }
         }
@@ -94,7 +94,7 @@ namespace Game.Runtime
                 if(!_baggagePairs[i].IsPlaced) continue;
 
                 _baggagePairs[i].Holder.DOComplete();
-                _baggagePairs[i].Holder.DOPunchScale(Vector3.one * 0.1f, 0.2f).SetEase(Ease.InOutSine).SetDelay(i * SCALE_EFFECT_DELAY);
+                _baggagePairs[i].Holder.DOPunchScale(Vector3.one * 0.4f, 0.2f).SetEase(Ease.InOutSine).SetDelay(i * SCALE_EFFECT_DELAY);
             }
         }
     }

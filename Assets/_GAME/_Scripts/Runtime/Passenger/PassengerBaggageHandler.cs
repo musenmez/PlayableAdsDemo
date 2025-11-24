@@ -23,6 +23,7 @@ namespace Game.Runtime
         public void DepositBaggage()
         {
             Player.Instance.BaggageHandler.TakeBaggage(_baggage);
+            Passenger.Animator.SetLayerWeight(PassengerAnimator.CARRY_LAYER, 0, 0.2f);
             _baggage = null;
         }
     }

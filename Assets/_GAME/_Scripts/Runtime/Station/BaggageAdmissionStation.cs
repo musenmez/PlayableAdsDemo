@@ -8,7 +8,7 @@ namespace Game.Runtime
     {
         private Coroutine _progressCo;
 
-        private readonly WaitForSeconds DELAY = new WaitForSeconds(0.2f);
+        private readonly WaitForSeconds DELAY = new WaitForSeconds(0.5f);
         
         protected override void StartStation()
         {
@@ -26,8 +26,8 @@ namespace Game.Runtime
         {
             while (true)
             {
-                if (!IsPassengerAvailable())
-                    yield return null;
+                // if (!IsPassengerAvailable())
+                //     yield return null;
 
                 DepositBaggage();
                 yield return DELAY;
