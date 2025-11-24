@@ -60,21 +60,15 @@ namespace Game.Runtime
 
         private Transform GetHolder(int index)
         {
-            var holderPosition = baggagePivotPoint.position + HOLDER_SPACING * index * Vector3.up;
             if (_baggageHolders.Count <= index)
             {
-                var baggageHolder = new GameObject($"Baggage Holder {_baggagePairs.Count + 1}")
-                {
-                    transform =
-                    {
-                        position = holderPosition,
-                        rotation = baggagePivotPoint.rotation
-                    }
-                };
+                var baggageHolder = new GameObject($"Baggage Holder {_baggagePairs.Count + 1}");
                 _baggageHolders.Add(baggageHolder.transform);
             }
 
-            _baggageHolders[index].transform.position = holderPosition;
+            _baggageHolders[index].transform.position = baggagePivotPoint.position + HOLDER_SPACING * index * Vector3.up;
+            _baggageHolders[index].transform.rotation = baggagePivotPoint.rotation;
+            
             return _baggageHolders[index];
         }
 
