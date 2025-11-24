@@ -19,6 +19,9 @@ namespace Game.Runtime
         
         public void TakeBaggage(Baggage baggage)
         {
+            if (_baggagePairs.Count == 0)
+                Player.Instance.Animator.SetLayerWeight(PlayerAnimator.CARRY_LAYER, 1f,0.1f);
+            
             var pair = CreatePair(baggage);
             PlacementTween(pair);
         }

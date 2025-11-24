@@ -16,6 +16,12 @@ namespace Game.Runtime
             _progressCo = StartCoroutine(ProgressCo());
         }
 
+        protected override void StopStation()
+        {
+            base.StopStation();
+            StopProgressing();
+        }
+
         private IEnumerator ProgressCo()
         {
             while (true)

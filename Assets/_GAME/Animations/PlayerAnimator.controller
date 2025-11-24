@@ -144,6 +144,43 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+  - serializedVersion: 5
+    m_Name: Carry
+    m_StateMachine: {fileID: 982745767257846294}
+    m_Mask: {fileID: 31900000, guid: 9874a411c7bf60c46943b4f1763712dc, type: 2}
+    m_Motions:
+    - serializedVersion: 2
+      m_State: {fileID: -4251364346941405416}
+      m_Motion: {fileID: -203655887218126122, guid: dd3fe8e0184853f43b1eecdd60ec3997, type: 3}
+    - serializedVersion: 2
+      m_State: {fileID: -9103220521961031202}
+      m_Motion: {fileID: -203655887218126122, guid: dd3fe8e0184853f43b1eecdd60ec3997, type: 3}
+    m_Behaviours: []
+    m_BlendingMode: 0
+    m_SyncedLayerIndex: 0
+    m_DefaultWeight: 0
+    m_IKPass: 0
+    m_SyncedLayerAffectsTiming: 0
+    m_Controller: {fileID: 9100000}
+--- !u!1107 &982745767257846294
+AnimatorStateMachine:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Carry
+  m_ChildStates: []
+  m_ChildStateMachines: []
+  m_AnyStateTransitions: []
+  m_EntryTransitions: []
+  m_StateMachineTransitions: {}
+  m_StateMachineBehaviours: []
+  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_EntryPosition: {x: 50, y: 120, z: 0}
+  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
+  m_DefaultState: {fileID: 0}
 --- !u!1101 &3602503545377591090
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

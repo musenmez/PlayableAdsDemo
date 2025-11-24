@@ -12,6 +12,7 @@ namespace Game.Runtime
         public Transform PassengerTransform => transform;
         public bool IsUsingEscalator { get; private set; }
         
+        [field : SerializeField] public PlayerAnimator Animator { get; private set; }
         [field : SerializeField] public PlayerMovement Movement { get; private set; }
         [field : SerializeField] public PlayerBaggageHandler BaggageHandler { get; private set; }
 
