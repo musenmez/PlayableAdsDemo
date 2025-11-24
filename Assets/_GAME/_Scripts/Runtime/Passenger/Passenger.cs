@@ -9,9 +9,11 @@ namespace Game.Runtime
     {
         public PassengerStateBase CurrentState { get; private set; }
         public PassengerStateId CurrentStateId { get; private set; }
+        public PassengerStatus CurrentStatus { get; private set; }
         
         [field : SerializeField] public PassengerSkinController SkinController { get; private set; }
         [field : SerializeField] public PassengerAnimator Animator { get; private set; }
+        [field : SerializeField] public PassengerMovement Movement { get; private set; }
         
         public Dictionary<PassengerStateId, PassengerStateBase> StatesById { get; private set; } = new()
         {
@@ -41,6 +43,16 @@ namespace Game.Runtime
             CurrentStateId = stateId;
             CurrentState = StatesById[stateId];
             CurrentState.EnterState(this);
+        }
+
+        public void CompleteStation()
+        {
+            CurrentState?.CompleteStation();
+        }
+
+        public void SetStatus(PassengerStatus status)
+        {
+            CurrentStatus = status;
         }
     }
 }

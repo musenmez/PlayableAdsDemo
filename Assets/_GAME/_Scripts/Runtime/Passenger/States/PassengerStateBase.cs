@@ -15,6 +15,8 @@ namespace Game.Runtime
         
         public virtual void UpdateState(){}
         
+        public virtual void CompleteStation(){}
+        
         public virtual void ExitState(){}
     }
 }

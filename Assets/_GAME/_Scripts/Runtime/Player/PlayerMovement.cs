@@ -9,9 +9,9 @@ namespace Game.Runtime
     {
         public bool IsEnabled { get; private set; }
 
-        [Header("Movement Parameters")] 
-        [SerializeField] private float movementSpeed = 15f;
-        [SerializeField] private float rotationSpeed = 75f;
+        [Header("Movement Settings")] 
+        [SerializeField] private float movementSpeed = 10f;
+        [SerializeField] private float rotationSpeed = 30f;
         
         [Header("Components")]
         [SerializeField] private Transform body;

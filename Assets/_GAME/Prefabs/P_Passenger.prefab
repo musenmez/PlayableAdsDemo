@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 902029841332198529}
   - component: {fileID: 718159527709060576}
   - component: {fileID: 5120564169825817275}
+  - component: {fileID: 3326796079472951304}
   m_Layer: 0
   m_Name: P_Passenger
   m_TagString: Untagged
@@ -80,6 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <SkinController>k__BackingField: {fileID: 5120564169825817275}
   <Animator>k__BackingField: {fileID: 160275487650910143}
+  <Movement>k__BackingField: {fileID: 3326796079472951304}
 --- !u!114 &5120564169825817275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +96,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinRenderer: {fileID: 5323019924245754107}
   skinColorData: {fileID: 11400000, guid: 5447971071e84a349a93104298da9fc5, type: 2}
+--- !u!114 &3326796079472951304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604228050364222674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f946894cb02c8e54caf309affaad2e92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 10
+  rotationSpeed: 30
+  body: {fileID: 5403773649712696843}
 --- !u!1001 &7156013081266932893
 PrefabInstance:
   m_ObjectHideFlags: 0
