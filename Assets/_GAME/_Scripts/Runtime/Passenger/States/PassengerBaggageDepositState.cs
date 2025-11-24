@@ -19,8 +19,9 @@ namespace Game.Runtime
         public override void UpdateState()
         {
             base.UpdateState();
+            var spacing = _lineInfo.Index == 0 ? 0 : _lineInfo.Spacing;
             var target = _station.GetPassengerLineTarget(_lineInfo);
-            var position = target.position + _lineInfo.Spacing * _lineInfo.Direction;
+            var position = target.position + spacing * _lineInfo.Direction;
             Passenger.Movement.MoveTowards(position, Time.deltaTime);
         }
 

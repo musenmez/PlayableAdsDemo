@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 718159527709060576}
   - component: {fileID: 5120564169825817275}
   - component: {fileID: 3326796079472951304}
+  - component: {fileID: 5863980289091969613}
   m_Layer: 0
   m_Name: P_Passenger
   m_TagString: Untagged
@@ -111,6 +112,20 @@ MonoBehaviour:
   movementSpeed: 10
   rotationSpeed: 30
   body: {fileID: 5403773649712696843}
+--- !u!114 &5863980289091969613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604228050364222674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f627de340f9d3143be24a02c17f4a35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PoolId>k__BackingField: 2
+  poolComponent: {fileID: 718159527709060576}
 --- !u!1001 &7156013081266932893
 PrefabInstance:
   m_ObjectHideFlags: 0

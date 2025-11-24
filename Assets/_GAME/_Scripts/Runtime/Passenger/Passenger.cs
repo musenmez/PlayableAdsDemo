@@ -20,15 +20,15 @@ namespace Game.Runtime
             { PassengerStateId.Initial, new PassengerInitialState() },
             { PassengerStateId.BaggageDeposit, new PassengerBaggageDepositState() },
         };
-
-        private void Start()
-        {
-            SetState(PassengerStateId.Initial);
-        }
-
+        
         private void Update()
         {
             CurrentState?.UpdateState();
+        }
+
+        public void Initialize()
+        {
+            SetState(PassengerStateId.Initial);
         }
         
         public void SetState(PassengerStateId stateId)

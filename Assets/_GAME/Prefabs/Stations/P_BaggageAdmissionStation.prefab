@@ -80,4 +80,4 @@ MonoBehaviour:
   progressDelay: 0.2
   lineStartPoint: {fileID: 5604274793012121955}
   lineDirection: {x: 0, y: 0, z: -1}
-  lineSpacing: 1
+  lineSpacing: 3

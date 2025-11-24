@@ -25,6 +25,7 @@ namespace Game.Runtime
             Player.Instance.Movement.DisableMovement();
             CameraManager.Instance.ActivateCamera(CameraId.SecondFloor, 1f);
             SecondFloorController.Instance.RevealProps();
+            PassengerCreator.Instance.SpawnPassengers(6);
 
             var delay = SecondFloorController.Instance.GetTotalRevealDuration();
             yield return new WaitForSeconds(delay);
