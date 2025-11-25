@@ -8,6 +8,7 @@ namespace Game.Runtime
     {
         private Coroutine _progressCo;
 
+        private const int TICKET_PRICE = 20;
         private readonly WaitForSeconds DELAY = new WaitForSeconds(0.5f);
 
         protected override void StartStation()
@@ -33,12 +34,20 @@ namespace Game.Runtime
 
         private void ApprovePassenger()
         {
+            if (!Airplane.Instance.IsAvailable)
+                return;
+            
             var passenger = GetAvailablePassenger();
             if (passenger is null)
                 return;
 
-            //passenger.BaggageHandler.DepositBaggage();
+            SpawnCurrency();
             passenger.CompleteStation();
+        }
+
+        private void SpawnCurrency()
+        {
+            
         }
 
         private void StopProgressing()

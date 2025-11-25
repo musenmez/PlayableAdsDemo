@@ -10,7 +10,7 @@ namespace Game.Runtime
     public class Airplane : MonoBehaviour
     {
         public static Airplane Instance { get; private set; }
-        public bool IsAvailable { get; private set; }
+        public bool IsAvailable { get; private set; } = true;
 
         [SerializeField] private int capacity;
         [SerializeField] private TextMeshPro capacityText;

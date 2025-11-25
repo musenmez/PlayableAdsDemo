@@ -29,7 +29,6 @@ namespace Game.Runtime
         {
             _station.RemovePassenger(_lineInfo);
             Passenger.SetState(PassengerStateId.BoardingPlane);
-            //Spawn Money
         }
     }
 }
