@@ -50,6 +50,9 @@ namespace Game.Runtime
 
         private void CheckFloor(FloorType floorType)
         {
+            if (TaskManager.Instance.CurrentTask == null) 
+                return;
+            
             if (TaskManager.Instance.CurrentTask == this)
             {
                 CompleteTask(floorType);
