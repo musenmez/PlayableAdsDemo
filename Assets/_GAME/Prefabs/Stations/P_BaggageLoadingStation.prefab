@@ -218,7 +218,7 @@ MonoBehaviour:
   <StationId>k__BackingField: 3
   trayEndPoint: {fileID: 5604274793012121955}
   truck: {fileID: 0}
-  defaultHeight: 0
-  maxHeight: 0
+  defaultHeight: 0.3
+  maxHeight: 5
   platformMovementBody: {fileID: 0}
   platformBaggageHolder: {fileID: 0}
