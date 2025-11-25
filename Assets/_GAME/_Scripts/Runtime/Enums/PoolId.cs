@@ -9,6 +9,7 @@ namespace Game.Runtime
         None = 0,
         EscalatorStep = 1,
         Passenger = 2,
-        Baggage = 3
+        Baggage = 3,
+        Money = 4
     }
 }

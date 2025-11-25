@@ -6,9 +6,10 @@ namespace Game.Runtime
 {
     public class PassengerTicketControlStation : PassengerStationBase
     {
+        [SerializeField] private TicketControlStationPaymentHandler paymentHandler;
+        
         private Coroutine _progressCo;
 
-        private const int TICKET_PRICE = 20;
         private readonly WaitForSeconds DELAY = new WaitForSeconds(0.5f);
 
         protected override void StartStation()
@@ -41,13 +42,8 @@ namespace Game.Runtime
             if (passenger is null)
                 return;
 
-            SpawnCurrency();
+            paymentHandler.ReceivePayment(passenger);
             passenger.CompleteStation();
-        }
-
-        private void SpawnCurrency()
-        {
-            
         }
 
         private void StopProgressing()

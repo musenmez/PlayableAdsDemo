@@ -3229,6 +3229,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 951602589}
     m_Modifications:
+    - target: {fileID: 283229579715221600, guid: 7367be0918266524fa3aa4545f086198, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.15
+      objectReference: {fileID: 0}
     - target: {fileID: 8130005955781776547, guid: 7367be0918266524fa3aa4545f086198, type: 3}
       propertyPath: m_Name
       value: P_PassengerTicketControlStation
