@@ -21,8 +21,9 @@ namespace Game.Runtime
             { PassengerStateId.Initial, new PassengerInitialState() },
             { PassengerStateId.BaggageDeposit, new PassengerBaggageDepositState() },
             { PassengerStateId.Escalator, new PassengerEscalatorState() },
-            { PassengerStateId.MoveTowardsXray, new PassengerMoveTowardsXrayState() },
-            { PassengerStateId.Xray, new PassengerXrayState() },
+            { PassengerStateId.MoveToTicketControl, new PassengerMoveToTicketControlState() },
+            { PassengerStateId.TicketControl, new PassengerTicketControlState() },
+            { PassengerStateId.BoardingPlane, new PassengerBoardingPlane() }
         };
         
         private void Update()

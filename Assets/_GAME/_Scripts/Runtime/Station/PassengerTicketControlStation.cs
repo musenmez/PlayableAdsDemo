@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Runtime
 {
-    public class PassengerXrayStation : PassengerStationBase
+    public class PassengerTicketControlStation : PassengerStationBase
     {
         private Coroutine _progressCo;
 

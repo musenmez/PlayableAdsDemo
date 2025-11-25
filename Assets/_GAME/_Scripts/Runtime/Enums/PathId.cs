@@ -8,6 +8,7 @@ namespace Game.Runtime
     {
         None = 0,
         Escalator = 1,
-        Xray = 2
+        TicketControl = 2,
+        Plane = 3
     }
 }

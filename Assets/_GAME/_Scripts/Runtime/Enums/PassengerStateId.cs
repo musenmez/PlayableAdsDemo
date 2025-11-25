@@ -10,7 +10,8 @@ namespace Game.Runtime
         Initial = 1,
         BaggageDeposit = 2,
         Escalator = 3,
-        MoveTowardsXray = 4,
-        Xray = 5
+        MoveToTicketControl = 4,
+        TicketControl = 5,
+        BoardingPlane = 6
     }
 }

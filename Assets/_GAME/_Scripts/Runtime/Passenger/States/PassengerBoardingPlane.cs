@@ -4,27 +4,29 @@ using UnityEngine;
 
 namespace Game.Runtime
 {
-    public class PassengerMoveTowardsXrayState : PassengerStateBase
+    public class PassengerBoardingPlane : PassengerStateBase
     {
         private const float PATH_DURATION = 1f;
         
         public override void EnterState(Passenger passenger)
         {
             base.EnterState(passenger);
-            MoveTowardsXray();
+            MoveToPlane();
         }
 
-        private void MoveTowardsXray()
+        private void MoveToPlane()
         {
-            var xrayPath = PathManager.Instance.GetPath(PathId.Xray);
+            var planePath = PathManager.Instance.GetPath(PathId.Plane);
             var startPos = Passenger.transform.position;
-            var path = xrayPath.GetPath(startPos);
+            var endPos = Airplane.Instance.DoorPoint.transform.position;
+            var path = planePath.GetPath(startPos, endPos);
             Passenger.Movement.FollowPath(path, PATH_DURATION, onComplete: CompleteState);
         }
 
         private void CompleteState()
         {
-            Passenger.SetState(PassengerStateId.Xray);
+            Airplane.Instance.AddPassenger();
+            Passenger.gameObject.SetActive(false);
         }
     }
 }

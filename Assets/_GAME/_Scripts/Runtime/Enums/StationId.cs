@@ -10,6 +10,6 @@ namespace Game.Runtime
         BaggageAdmission = 1,
         BaggageTray = 2,
         BaggageLoading = 3,
-        PassengerXray = 4
+        PassengerTicketControl = 4
     }
 }

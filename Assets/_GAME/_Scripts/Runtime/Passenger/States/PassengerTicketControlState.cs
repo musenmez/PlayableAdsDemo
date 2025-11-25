@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Runtime
 {
-    public class PassengerXrayState : PassengerStateBase
+    public class PassengerTicketControlState : PassengerStateBase
     {
         private PassengerStationBase _station;
         private StationLineInfo _lineInfo;
@@ -12,7 +12,7 @@ namespace Game.Runtime
         public override void EnterState(Passenger passenger)
         {
             base.EnterState(passenger);
-            _station = StationManager.Instance.GetStation(StationId.PassengerXray) as PassengerStationBase;
+            _station = StationManager.Instance.GetStation(StationId.PassengerTicketControl) as PassengerStationBase;
             _lineInfo = _station.AddPassenger(Passenger);
         }
 
@@ -28,9 +28,8 @@ namespace Game.Runtime
         public override void CompleteStation()
         {
             _station.RemovePassenger(_lineInfo);
-            Passenger.gameObject.SetActive(false);
+            Passenger.SetState(PassengerStateId.BoardingPlane);
             //Spawn Money
-            //Trigger Plane On board state
         }
     }
 }

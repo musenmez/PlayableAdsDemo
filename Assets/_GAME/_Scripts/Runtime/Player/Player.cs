@@ -8,7 +8,7 @@ namespace Game.Runtime
 {
     public class Player : MonoBehaviour
     {
-        public static Player Instance { get; private set; } = null;
+        public static Player Instance { get; private set; }
         public Transform PassengerTransform => transform;
         public bool IsUsingEscalator { get; private set; }
         
