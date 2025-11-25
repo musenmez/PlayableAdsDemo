@@ -1,0 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Game.Runtime
+{
+    public class InGameState : GameStateBase
+    {
+        public override void Enter()
+        {
+            CameraManager.Instance.ActivateCamera(CameraId.InGame);
+            Player.Instance.Movement.EnableMovement();
+        }
+    }
+}

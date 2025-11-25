@@ -1,0 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Game.Runtime
+{
+    public enum PoolId
+    {
+        None = 0,
+        EscalatorStep = 1,
+        Passenger = 2,
+        Baggage = 3,
+        Money = 4
+    }
+}

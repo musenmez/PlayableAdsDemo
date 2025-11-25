@@ -8,5 +8,12 @@ namespace Game.Runtime
     {
         public abstract void Enter();
         public virtual void Exit(){}
+        protected void StopCoroutine(Coroutine routine)
+        {
+            if (routine != null)
+            {
+                GameManager.Instance.StopCoroutine(routine);
+            }
+        }
     }
 }

@@ -14,6 +14,8 @@ namespace Game.Runtime
         public Dictionary<GameStateId, GameStateBase> StatesById { get; private set; } = new()
         {
             { GameStateId.Initial, new InitialState() },
+            { GameStateId.InGame, new InGameState() },
+            { GameStateId.SecondFloorReveal, new SecondFloorRevealState() }
         };
 
         private void Awake()
