@@ -915,6 +915,7 @@ MonoBehaviour:
   - {fileID: 694699417}
   - {fileID: 329499579}
   - {fileID: 2067401913}
+  - {fileID: 917942369}
 --- !u!1 &293785037
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,7 +1052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a61a098fa43beaa4eb933bdfa0c565b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <TaskId>k__BackingField: 5
+  <TaskFloorType>k__BackingField: 0
   <IndicatorTarget>k__BackingField: {fileID: 101712328}
   targetFloor: 1
   indicatorBody: {fileID: 101712328}
@@ -2141,6 +2142,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5815026958870765183, guid: 03e077aea581d3a44bef881c47ec6d33, type: 3}
   m_PrefabInstance: {fileID: 917942367}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &917942369 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6318205110687774545, guid: 03e077aea581d3a44bef881c47ec6d33, type: 3}
+  m_PrefabInstance: {fileID: 917942367}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3de4c65cd79f09344bd83b0901bff167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &932596015
 GameObject:
   m_ObjectHideFlags: 0

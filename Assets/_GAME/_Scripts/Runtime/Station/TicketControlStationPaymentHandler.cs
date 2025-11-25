@@ -2,24 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 namespace Game.Runtime
 {
-    public class TicketControlStationPaymentHandler : MonoBehaviour, IMoneyStack
+    public class TicketControlStationPaymentHandler : MonoBehaviour, IMoneyStack, IInteractable
     {
+        public bool IsInteractable { get; } = true;
+        public UnityEvent OnPaymentClaimed { get; } = new();
+
         [SerializeField] private int stackRow = 2;
         [SerializeField] private int stackColumn = 3;
         [SerializeField] private Vector3 stackSpacing;
         [SerializeField] private Transform stackHolder;
-        
-        private readonly List<Money> _monies = new();
         
         private const int TICKET_PRICE = 20;
         private const int INSTANCE_COUNT = 2;
 
         private const float MONEY_SPAWN_OFFSET = 2f;
         private readonly Vector3 MONEY_ROTATION = new Vector3(0f, 35f, 0f);
+        private readonly WaitForSeconds ClaimDelay = new WaitForSeconds(0.05f);
+
+        private Coroutine _claimCo;
+        private readonly List<Money> _monies = new();
         
         public void ReceivePayment(Passenger passenger)
         {   
@@ -34,6 +40,14 @@ namespace Game.Runtime
                 MoneyAnimation(money, value, _monies.Count - 1);
             }
         }
+        
+        public void Interact(Interactor interactor)
+        {
+            if (!IsInteractable) 
+                return;
+            
+            ClaimAll(interactor);
+        }
 
         public void RemoveFromStack(Money money)
         {
@@ -41,6 +55,30 @@ namespace Game.Runtime
                 return;
             
             _monies.Remove(money);
+        }
+        
+        public int GetStackCount() => _monies.Count;
+
+        private void ClaimAll(Interactor interactor)
+        {
+            if (_monies.Count == 0)
+                return;
+            
+            if(_claimCo != null)
+                StopCoroutine(_claimCo);
+
+            _claimCo = StartCoroutine(ClaimCo(interactor));
+        }
+
+        private IEnumerator ClaimCo(Interactor interactor)
+        {
+            var monies = new List<Money>(_monies);
+            foreach (var money in monies)
+            {
+                money.Interact(interactor);
+                yield return ClaimDelay;
+            }
+            OnPaymentClaimed.Invoke();
         }
 
         private void MoneyAnimation(Money money, int value, int index)
@@ -82,5 +120,7 @@ namespace Game.Runtime
                 z * stackSpacing.z
             );
         }
+
+        public void InteractorExit(Interactor interactor){}
     }
 }

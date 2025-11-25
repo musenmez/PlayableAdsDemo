@@ -4,18 +4,28 @@ using UnityEngine;
 
 namespace Game.Runtime
 {
-    public class MoneyCollectTask : MonoBehaviour
+    public class MoneyCollectTask : TaskBase
     {
-        // Start is called before the first frame update
-        void Start()
+        [SerializeField] private TicketControlStationPaymentHandler paymentHandler;
+
+        public override void ActivateTask()
         {
-        
+            base.ActivateTask();
+            paymentHandler.OnPaymentClaimed.AddListener(CompleteTask);
+            
+            if(paymentHandler.GetStackCount() == 0)
+                CompleteTask();
         }
 
-        // Update is called once per frame
-        void Update()
+        public override void DeactivateTask()
         {
-        
+            base.DeactivateTask();
+            paymentHandler.OnPaymentClaimed.RemoveListener(CompleteTask);
+        }
+
+        private void CompleteTask()
+        {
+            TaskManager.Instance.CompleteTask(this);
         }
     }
 }

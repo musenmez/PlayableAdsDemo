@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5815026958870765183}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2860879277102705619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2433196728126400606}
+  m_Layer: 0
+  m_Name: Task Indicator
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2433196728126400606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2860879277102705619}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.53, y: 0, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5815026958870765183}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4193546607852302362
 GameObject:
   m_ObjectHideFlags: 0
@@ -40,6 +71,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2088281167850900325}
+  - component: {fileID: 5583103520342681228}
+  - component: {fileID: 150267267572114616}
   m_Layer: 0
   m_Name: Money Stack Holder
   m_TagString: Untagged
@@ -62,6 +95,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5815026958870765183}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5583103520342681228
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4193546607852302362}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.860921, y: 2, z: 4.121465}
+  m_Center: {x: 1.2814069, y: 1, z: 0.5452874}
+--- !u!114 &150267267572114616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4193546607852302362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7c16c69718c954b845305a101ee808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stackRow: 2
+  stackColumn: 3
+  stackSpacing: {x: 1.1, y: 0.5, z: 1.6}
+  stackHolder: {fileID: 2088281167850900325}
 --- !u!1001 &2937222084967710543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -123,13 +193,16 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8678502285843718448, guid: 9053573aae13f084ebdec20844a5b4a3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2088281167850900325}
+    - targetCorrespondingSourceObject: {fileID: 8678502285843718448, guid: 9053573aae13f084ebdec20844a5b4a3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2433196728126400606}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8130005955781776547, guid: 9053573aae13f084ebdec20844a5b4a3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5294069557638065386}
     - targetCorrespondingSourceObject: {fileID: 8130005955781776547, guid: 9053573aae13f084ebdec20844a5b4a3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7495257214292250476}
+      addedObject: {fileID: 6318205110687774545}
   m_SourcePrefab: {fileID: 100100000, guid: 9053573aae13f084ebdec20844a5b4a3, type: 3}
 --- !u!4 &5815026958870765183 stripped
 Transform:
@@ -159,8 +232,8 @@ MonoBehaviour:
   lineStartPoint: {fileID: 2385608013221897017}
   lineDirection: {x: -1, y: 0, z: 0}
   lineSpacing: 3
-  paymentHandler: {fileID: 7495257214292250476}
---- !u!114 &7495257214292250476
+  paymentHandler: {fileID: 150267267572114616}
+--- !u!114 &6318205110687774545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,10 +242,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6345728808787667948}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa7c16c69718c954b845305a101ee808, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4c65cd79f09344bd83b0901bff167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stackRow: 2
-  stackColumn: 3
-  stackSpacing: {x: 1.1, y: 0.5, z: 1.6}
-  stackHolder: {fileID: 2088281167850900325}
+  <TaskFloorType>k__BackingField: 1
+  <IndicatorTarget>k__BackingField: {fileID: 2433196728126400606}
+  paymentHandler: {fileID: 150267267572114616}
