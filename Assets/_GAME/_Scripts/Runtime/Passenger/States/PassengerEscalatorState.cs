@@ -39,8 +39,7 @@ namespace Game.Runtime
         private void CompleteState()
         {
             Passenger.EscalatorHandler.OnExited.RemoveListener(CompleteState);
-            Passenger.gameObject.SetActive((false));
-            //Trigger Next State
+            Passenger.SetState(PassengerStateId.MoveTowardsXray);
         }
     }
 }

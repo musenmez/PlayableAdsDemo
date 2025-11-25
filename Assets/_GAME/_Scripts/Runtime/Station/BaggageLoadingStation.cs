@@ -18,7 +18,7 @@ namespace Game.Runtime
         [Space, SerializeField] private Transform platformMovementBody;
         [SerializeField] private Transform platformBaggageHolder;
         
-        private readonly WaitForSeconds DELAY = new WaitForSeconds(0.2f);
+        private readonly WaitForSeconds DELAY = new WaitForSeconds(0.1f);
         private Coroutine _progressCo;
         private BaggageTrayStation _trayStation;
         private bool _isLoadingOnProgress;
@@ -61,7 +61,7 @@ namespace Game.Runtime
             baggage.transform.DOKill();
             
             var loadingSeq = DOTween.Sequence();
-            loadingSeq.Append(baggage.transform.DOMove(trayEndPoint.position, 0.25f).SetEase(Ease.Linear))
+            loadingSeq.Append(baggage.transform.DOMove(trayEndPoint.position, 0.15f).SetEase(Ease.Linear))
                 .AppendCallback(() => baggage.transform.SetParent(platformBaggageHolder))
                 .Append(baggage.transform.DOLocalJump(Vector3.zero, 2f, 1, 0.25f).SetEase(Ease.Linear))
                 .Join(baggage.transform.DOLocalRotateQuaternion(Quaternion.identity, 0.25f).SetEase(Ease.Linear))

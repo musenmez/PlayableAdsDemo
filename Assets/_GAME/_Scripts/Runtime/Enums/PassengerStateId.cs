@@ -9,6 +9,8 @@ namespace Game.Runtime
         None = 0,
         Initial = 1,
         BaggageDeposit = 2,
-        Escalator = 3
+        Escalator = 3,
+        MoveTowardsXray = 4,
+        Xray = 5
     }
 }

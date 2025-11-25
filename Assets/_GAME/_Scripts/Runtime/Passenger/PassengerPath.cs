@@ -9,7 +9,7 @@ namespace Game.Runtime
         [field : SerializeField] public PathId PathId { get; private set; }
         [SerializeField] private List<Transform> waypoints = new();
 
-        public Vector3[] GetPath(Vector3 startPosition, Vector3 endPosition)
+        public Vector3[] GetPath(Vector3 startPosition, Vector3? endPosition = null)
         {
             var points = new List<Vector3> { startPosition };
 
@@ -18,7 +18,9 @@ namespace Game.Runtime
                 points.Add(point.position);
             }
             
-            points.Add(endPosition);
+            if (endPosition != null)
+                points.Add(endPosition.Value);
+            
             return points.ToArray();
         }
 
