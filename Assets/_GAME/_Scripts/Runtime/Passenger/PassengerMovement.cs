@@ -12,7 +12,7 @@ namespace Game.Runtime
         [SerializeField] private float rotationSpeed = 30f;
 
         private const float MOVEMENT_THRESHOLD = 0.05f;
-        private const float ROTATION_THRESHOLD = 0.01f;
+        private const float ROTATION_THRESHOLD = 0.001f;
 
         public void MoveTowards(Vector3 targetPosition, float deltaTime)
         {

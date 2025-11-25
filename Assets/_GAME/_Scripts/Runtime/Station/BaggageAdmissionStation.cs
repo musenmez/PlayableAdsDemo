@@ -39,6 +39,15 @@ namespace Game.Runtime
             
             passenger.BaggageHandler.DepositBaggage();
             passenger.CompleteStation();
+            CheckTask();
+        }
+
+        private void CheckTask()
+        {
+            if (_passengerLineInfos.Count > 0)
+                return;
+            
+            TaskManager.Instance.CompleteTask(this);
         }
 
         private void StopProgressing()

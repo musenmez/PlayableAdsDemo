@@ -6,6 +6,7 @@ namespace Game.Runtime
 {
     public class PassengerTicketControlStation : PassengerStationBase
     {
+        [Header("Ticket Control Station")]
         [SerializeField] private TicketControlStationPaymentHandler paymentHandler;
         
         private Coroutine _progressCo;
@@ -44,6 +45,15 @@ namespace Game.Runtime
 
             paymentHandler.ReceivePayment(passenger);
             passenger.CompleteStation();
+            CheckTask();
+        }
+        
+        private void CheckTask()
+        {
+            if (_passengerLineInfos.Count > 0)
+                return;
+            
+            TaskManager.Instance.CompleteTask(this);
         }
 
         private void StopProgressing()

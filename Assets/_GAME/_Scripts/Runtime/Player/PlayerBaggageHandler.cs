@@ -48,6 +48,8 @@ namespace Game.Runtime
             return baggagePair;
         }
         
+        public int GetBaggageCount => _baggagePairs.Count;
+        
         private BaggagePair CreatePair(Baggage baggage)
         {
             var holder = GetHolder(_baggagePairs.Count);

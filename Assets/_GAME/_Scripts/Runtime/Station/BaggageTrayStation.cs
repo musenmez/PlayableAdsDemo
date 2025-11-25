@@ -7,13 +7,14 @@ namespace Game.Runtime
 {
     public class BaggageTrayStation : StationBase
     {
-        [SerializeField] private Transform baggageParent;
+        public List<BaggagePair> BaggagePairs { get; private set; } = new();
+        
+        [Header("Tray Station"), SerializeField] private Transform baggageParent;
 
         private const float BAGGAGE_SPACING = 0.625f;
         private const float SCALE_EFFECT_DELAY = 0.05f;
         private readonly WaitForSeconds DELAY = new WaitForSeconds(0.5f);
 
-        private readonly List<BaggagePair> _baggagePairs = new();
         private PlayerBaggageHandler _baggageHandler;
         private Coroutine _progressCo;
         
@@ -22,11 +23,11 @@ namespace Game.Runtime
         /// </summary>
         public Baggage PopBottomBaggage()
         {
-            if (_baggagePairs.Count == 0 || _baggagePairs[0].IsPlaced == false)
+            if (BaggagePairs.Count == 0 || BaggagePairs[0].IsPlaced == false)
                 return null;
 
-            var baggagePair = _baggagePairs[0];
-            _baggagePairs.RemoveAt(0);
+            var baggagePair = BaggagePairs[0];
+            BaggagePairs.RemoveAt(0);
             SortBaggages();
             return baggagePair.Baggage;
         }
@@ -62,9 +63,9 @@ namespace Game.Runtime
             baggagePair.Holder = baggageParent;
             baggagePair.Baggage.transform.SetParent(baggageParent);
             baggagePair.Baggage.transform.localScale = Vector3.one;
-            _baggagePairs.Add(baggagePair);
+            BaggagePairs.Add(baggagePair);
             
-            PlacementTween(baggagePair, _baggagePairs.Count - 1);
+            PlacementTween(baggagePair, BaggagePairs.Count - 1);
         }
         
         private void PlacementTween(BaggagePair pair, int index)
@@ -75,27 +76,37 @@ namespace Game.Runtime
             {
                 pair.IsPlaced = true;
                 ScaleEffect();
+                CheckTask();
             });
         }
         
         private void ScaleEffect()
         {
-            for (var i = 0; i < _baggagePairs.Count; i++)
+            for (var i = 0; i < BaggagePairs.Count; i++)
             {
-                if(!_baggagePairs[i].IsPlaced) continue;
+                if(!BaggagePairs[i].IsPlaced) continue;
 
-                _baggagePairs[i].Baggage.transform.DOComplete();
-                _baggagePairs[i].Baggage.transform.DOPunchScale(Vector3.one * 0.3f, 0.2f).SetEase(Ease.InOutSine).SetDelay(i * SCALE_EFFECT_DELAY);
+                BaggagePairs[i].Baggage.transform.DOComplete();
+                BaggagePairs[i].Baggage.transform.DOPunchScale(Vector3.one * 0.3f, 0.2f).SetEase(Ease.InOutSine).SetDelay(i * SCALE_EFFECT_DELAY);
             }
         }
 
         private void SortBaggages()
         {
-            for (var i = 0; i < _baggagePairs.Count; i++)
+            for (var i = 0; i < BaggagePairs.Count; i++)
             {
-                _baggagePairs[i].Baggage.transform.DOComplete();
-                _baggagePairs[i].Baggage.transform.DOLocalMoveY(i * BAGGAGE_SPACING, 0.2f).SetDelay(0.2f).SetEase(Ease.OutBack);
+                BaggagePairs[i].Baggage.transform.DOComplete();
+                BaggagePairs[i].Baggage.transform.DOLocalMoveY(i * BAGGAGE_SPACING, 0.2f).SetDelay(0.2f).SetEase(Ease.OutBack);
             }
+        }
+        
+        private void CheckTask()
+        {
+            if (_baggageHandler.GetBaggageCount > 0)
+                return;
+            
+            StopProgressing();
+            TaskManager.Instance.CompleteTask(this);
         }
         
         private void StopProgressing()

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Game.Runtime
 {
@@ -11,6 +12,7 @@ namespace Game.Runtime
         public static Player Instance { get; private set; }
         public Transform PassengerTransform => transform;
         public bool IsUsingEscalator { get; private set; }
+        public FloorType CurrentFloor { get; private set; } = FloorType.First;
         
         [field : SerializeField] public PlayerAnimator Animator { get; private set; }
         [field : SerializeField] public PlayerMovement Movement { get; private set; }
@@ -19,6 +21,12 @@ namespace Game.Runtime
         private void Awake()
         {
             Instance = this;
+        }
+
+        public void SetFloor(FloorType floorType)
+        {
+            CurrentFloor = floorType;
+            EscalatorManager.Instance.OnPlayerFloorChanged.Invoke(CurrentFloor);
         }
     }
 }

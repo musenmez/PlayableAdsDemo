@@ -10,6 +10,7 @@ namespace Game.Runtime
         {
             PoolingManager.Instance.Initialize();
             CurrencyManager.Instance.Initialize();
+            TaskManager.Instance.Initialize();
             GameManager.Instance.SetState(GameStateId.InGame);
         }
     }

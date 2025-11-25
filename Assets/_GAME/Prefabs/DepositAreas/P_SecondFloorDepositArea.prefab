@@ -114,3 +114,10 @@ MonoBehaviour:
   canvasGroup: {fileID: 1051150910368924572}
   fillImage: {fileID: 402698357030512115}
   costText: {fileID: 3588068054194331689}
+  <TaskId>k__BackingField: 1
+  <IndicatorTarget>k__BackingField: {fileID: 8802030392940236028}
+--- !u!4 &8802030392940236028 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6605131935273174471, guid: f3205f614a2fa524bbfd1e518fa674fa, type: 3}
+  m_PrefabInstance: {fileID: 2417655087669102907}
+  m_PrefabAsset: {fileID: 0}

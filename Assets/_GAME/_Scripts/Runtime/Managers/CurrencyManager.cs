@@ -16,6 +16,7 @@ namespace Game.Runtime
         public void Initialize()
         {
             CurrencyAmount = currencyData.InitialCurrency;
+            OnCurrencyAmountChanged.Invoke();
         }
 
         public void AddCurrency(int amount)

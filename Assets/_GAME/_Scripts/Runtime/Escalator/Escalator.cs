@@ -16,6 +16,10 @@ namespace Game.Runtime
         [SerializeField] private GameObject topTrigger;
         [SerializeField] private GameObject bottomTrigger;
         
+        [Header("Indicators")]
+        [SerializeField] private GameObject topIndicator;
+        [SerializeField] private GameObject bottomIndicator;
+        
         [field : Header("Ground Options"), SerializeField] public float BottomFloorHeight { get; private set; }
         [field : SerializeField] public float TopFloorHeight { get; private set; }
 
@@ -29,6 +33,7 @@ namespace Game.Runtime
         private void Start()
         {
             SetTriggers();
+            SetIndicators();
             InitializeSteps();
             _stepSpawnCo = StartCoroutine(StepSpawnCo());
         }
@@ -103,6 +108,12 @@ namespace Game.Runtime
         {
             bottomTrigger.SetActive(Direction == EscalatorDirection.Up);
             topTrigger.SetActive(Direction == EscalatorDirection.Down);
+        }
+
+        private void SetIndicators()
+        {
+            topIndicator.SetActive(Direction == EscalatorDirection.Up);
+            bottomIndicator.SetActive(Direction == EscalatorDirection.Down);
         }
     }
 }

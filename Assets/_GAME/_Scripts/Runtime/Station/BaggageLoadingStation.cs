@@ -8,6 +8,7 @@ namespace Game.Runtime
 {
     public class BaggageLoadingStation : StationBase
     {
+        [Header("Baggage Loading Station")]
         [SerializeField] private Transform trayEndPoint;
         [SerializeField] private Truck truck;
 
@@ -52,6 +53,7 @@ namespace Game.Runtime
             if (baggage is null) return;
             
             LoadingTween(baggage);
+            CheckTask();
         }
 
         private void LoadingTween(Baggage baggage)
@@ -66,6 +68,14 @@ namespace Game.Runtime
                 .Append(platformMovementBody.DOMoveY(maxHeight, 0.2f).SetEase(Ease.OutBack))
                 .JoinCallback(() => truck.AddBaggage(baggage)).SetDelay(0.15f)
                 .Append(platformMovementBody.DOMoveY(defaultHeight, 0.2f).SetEase(Ease.InOutSine));
+        }
+        
+        private void CheckTask()
+        {
+            if (_trayStation.BaggagePairs.Count > 0)
+                return;
+            
+            TaskManager.Instance.CompleteTask(this);
         }
         
         private void StopProgressing()

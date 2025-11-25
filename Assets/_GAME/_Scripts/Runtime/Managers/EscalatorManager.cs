@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Game.Runtime
 {
     public class EscalatorManager : Singleton<EscalatorManager>
     {
+        public UnityEvent<FloorType> OnPlayerFloorChanged { get; } = new();
+        
         [SerializeField] private List<Escalator> escalators = new();
         
         private readonly Dictionary<EscalatorDirection, Escalator> _escalatorsByDirection = new();
