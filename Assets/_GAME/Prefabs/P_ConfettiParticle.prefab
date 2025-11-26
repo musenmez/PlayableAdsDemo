@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 404186}
   - component: {fileID: 19832784}
   - component: {fileID: 19918548}
-  m_Layer: 1
+  m_Layer: 7
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4763,8 +4763,8 @@ ParticleSystemRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164318}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -4839,7 +4839,7 @@ GameObject:
   - component: {fileID: 443126}
   - component: {fileID: 19854642}
   - component: {fileID: 19999264}
-  m_Layer: 1
+  m_Layer: 7
   m_Name: P_ConfettiParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9476,8 +9476,8 @@ ParticleSystemRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165102}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -9552,7 +9552,7 @@ GameObject:
   - component: {fileID: 484964}
   - component: {fileID: 19850206}
   - component: {fileID: 19978748}
-  m_Layer: 1
+  m_Layer: 7
   m_Name: Clouds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14286,8 +14286,8 @@ ParticleSystemRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194060}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1

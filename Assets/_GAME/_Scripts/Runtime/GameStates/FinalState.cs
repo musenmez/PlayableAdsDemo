@@ -10,8 +10,8 @@ namespace Game.Runtime
     {
         private Coroutine _finalCo;
         
-        private const float TRANSITION_DELAY = 1f;
-        private const float LOAD_DELAY = 0.5f;
+        private const float TRANSITION_DELAY = 1.25f;
+        private const float LOAD_DELAY = 1f;
         
         public override void Enter()
         {
@@ -29,6 +29,7 @@ namespace Game.Runtime
         private IEnumerator FinalCo()
         {
             GameManager.Instance.OnLevelCompleted.Invoke();
+            UIManager.Instance.HidePanel(PanelId.Painting);
             yield return new WaitForSeconds(TRANSITION_DELAY);
             
             UIManager.Instance.ShowPanel(PanelId.Transition);

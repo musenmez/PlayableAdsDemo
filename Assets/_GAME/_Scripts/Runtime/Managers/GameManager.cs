@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -41,12 +40,6 @@ namespace Game.Runtime
             CurrentState = StatesById[stateId];
             CurrentState.Enter();
             OnGameStateChanged.Invoke(CurrentStateId);
-        }
-        
-        [Button]
-        private void SetPaintingState()
-        {
-            SetState(GameStateId.Painting);
         }
     }
 }
