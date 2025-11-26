@@ -11,6 +11,7 @@ namespace Game.Runtime
     {
         [Header("Painting Panel")]
         [SerializeField] private P3dPaintDecal paintDecal;
+        [SerializeField] private P3dHitScreen hitScreen;
         [SerializeField] private Slider brushSizeSlider;
 
         protected override void OnEnable()
@@ -32,6 +33,7 @@ namespace Game.Runtime
 
         public void CompletePainting()
         {
+            hitScreen.enabled = false;
             GameManager.Instance.SetState(GameStateId.Final);
         }
         
