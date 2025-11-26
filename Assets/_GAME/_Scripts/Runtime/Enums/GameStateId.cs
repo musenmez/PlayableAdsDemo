@@ -9,6 +9,7 @@ namespace Game.Runtime
         Initial = 0,
         InGame = 1,
         SecondFloorReveal = 2,
-        Painting = 3
+        Painting = 3,
+        Final = 4
     }
 }

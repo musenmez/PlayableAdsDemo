@@ -8,6 +8,7 @@ namespace Game.Runtime
     {
         None = 0,
         Currency = 1,
-        Painting = 2
+        Painting = 2,
+        Transition = 3
     }
 }

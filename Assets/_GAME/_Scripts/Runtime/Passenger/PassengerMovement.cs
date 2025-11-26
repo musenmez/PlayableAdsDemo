@@ -20,7 +20,10 @@ namespace Game.Runtime
             
             var targetPos = Vector3.MoveTowards(transform.position, targetPosition, movementSpeed * deltaTime);
             transform.position = targetPos;
-            
+        }
+
+        public void RotateTowards(Vector3 targetPosition, float deltaTime)
+        {
             var moveDirection =  (targetPosition - transform.position).normalized;
             if (moveDirection.sqrMagnitude < ROTATION_THRESHOLD)
                 return;

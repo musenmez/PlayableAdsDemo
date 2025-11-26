@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 396369955100752591}
   - component: {fileID: 485099444399082714}
   - component: {fileID: 6320284140347051169}
-  - component: {fileID: 7673171255548154369}
   m_Layer: 0
   m_Name: P_Money
   m_TagString: Untagged
@@ -93,27 +92,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PoolId>k__BackingField: 4
   poolComponent: {fileID: 485099444399082714}
---- !u!135 &7673171255548154369
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9193953786732797662}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &6417109594654369968
 PrefabInstance:
   m_ObjectHideFlags: 0

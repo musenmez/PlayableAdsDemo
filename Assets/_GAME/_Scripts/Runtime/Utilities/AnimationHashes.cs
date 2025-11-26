@@ -9,5 +9,6 @@ namespace Game.Runtime
         public static int Idle = Animator.StringToHash(nameof(Idle));
         public static int Run = Animator.StringToHash(nameof(Run));
         public static int Speed = Animator.StringToHash(nameof(Speed));
+        public static int WalkSpeedMultiplier = Animator.StringToHash(nameof(WalkSpeedMultiplier));
     }
 }

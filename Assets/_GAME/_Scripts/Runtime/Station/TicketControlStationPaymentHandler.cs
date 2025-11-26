@@ -22,7 +22,7 @@ namespace Game.Runtime
 
         private const float MONEY_SPAWN_OFFSET = 2f;
         private readonly Vector3 MONEY_ROTATION = new Vector3(0f, 35f, 0f);
-        private readonly WaitForSeconds ClaimDelay = new WaitForSeconds(0.05f);
+        private readonly WaitForSeconds ClaimDelay = new WaitForSeconds(0.01f);
 
         private Coroutine _claimCo;
         private readonly List<Money> _monies = new();
@@ -75,7 +75,7 @@ namespace Game.Runtime
             var monies = new List<Money>(_monies);
             foreach (var money in monies)
             {
-                money.Interact(interactor);
+                money.Collect(interactor.transform);
                 yield return ClaimDelay;
             }
             OnPaymentClaimed.Invoke();
