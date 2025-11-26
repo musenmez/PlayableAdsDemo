@@ -17,7 +17,8 @@ namespace Game.Runtime
         public override void Exit()
         {
             base.Exit();
-            StopCoroutine(_revealCo);
+            if (_revealCo != null)
+                StopCoroutine(_revealCo);
         }
 
         private IEnumerator RevealCo()

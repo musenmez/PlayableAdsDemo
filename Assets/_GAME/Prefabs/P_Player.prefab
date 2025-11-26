@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 8246820397384062732}
   - component: {fileID: 2095270885153214676}
   - component: {fileID: 6739048112602359953}
+  - component: {fileID: 3760054540170430476}
   m_Layer: 0
   m_Name: P_Player
   m_TagString: Untagged
@@ -229,6 +230,7 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 986050020348814126}
   <Movement>k__BackingField: {fileID: 2228744404607377609}
   <BaggageHandler>k__BackingField: {fileID: 2095270885153214676}
+  <PaintingAreaHandler>k__BackingField: {fileID: 3760054540170430476}
 --- !u!114 &2228744404607377609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,6 +301,19 @@ MonoBehaviour:
   indicatorBody: {fileID: 5207506443891217465}
   indicatorVisual: {fileID: 844768287075660376}
   escalatorHandler: {fileID: 8246820397384062732}
+--- !u!114 &3760054540170430476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5399635372951756665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38eb0dbe2ca9fc54f93c6c89bba259dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationBody: {fileID: 7380253205275090209}
 --- !u!1 &8648920083631127827
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,8 @@ namespace Game.Runtime
     {
         public bool IsInteractable { get; protected set; }
         public bool IsCompleted { get; protected set; }
-
+        
+        [Header("Deposit Area Settings")]
         [SerializeField] protected int cost;
         
         [Space, SerializeField] protected Transform body;
