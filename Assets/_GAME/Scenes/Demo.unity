@@ -1307,7 +1307,6 @@ Transform:
   - {fileID: 900046752}
   - {fileID: 101712326}
   - {fileID: 8759484995828929977}
-  - {fileID: 1890185451}
   - {fileID: 951602589}
   m_Father: {fileID: 773723423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1679,6 +1678,37 @@ Transform:
   - {fileID: 3996334471425654717}
   - {fileID: 7446730690310897102}
   m_Father: {fileID: 2015909843}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &493838150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 493838151}
+  m_Layer: 0
+  m_Name: -------------------------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &493838151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493838150}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &502885828
 GameObject:
@@ -2118,7 +2148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693725124}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.35925704, y: 0.33790675, z: -0.14143011, w: 0.858342}
+  m_LocalRotation: {x: 0.35894796, y: 0.33977655, z: -0.14221264, w: 0.8576036}
   m_LocalPosition: {x: -20.04, y: 36.57, z: -9.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5601,6 +5631,7 @@ Transform:
   m_Children:
   - {fileID: 1467200076436352002}
   - {fileID: 9112765132492880988}
+  - {fileID: 1890185451}
   m_Father: {fileID: 375681871}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1860066365 stripped
@@ -5637,7 +5668,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 375681871}
+  m_Father: {fileID: 1851767262}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1987537024 stripped
 RectTransform:
@@ -7930,7 +7961,7 @@ MonoBehaviour:
   async: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 9114725993252616969}
-  cooldown: -855.5553
+  cooldown: -895.99554
   currentReader:
     dirty: 0
     requested: 0
@@ -7985,8 +8016,9 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 577981552}
   - {fileID: 1356733253}
+  - {fileID: 493838151}
   - {fileID: 823747298}
-  - {fileID: 6310537447884528884}
   - {fileID: 773723423}
   - {fileID: 1081111210}
   - {fileID: 1264830519}
+  - {fileID: 6310537447884528884}
