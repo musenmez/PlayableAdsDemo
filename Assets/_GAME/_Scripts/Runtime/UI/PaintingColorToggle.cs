@@ -42,13 +42,13 @@ namespace Game.Runtime
 
         private void Select()
         {
-            ScaleTween(SELECTED_SCALE, 0.2f);
+            ScaleTween(SELECTED_SCALE, 0.1f);
             paintingPanel.SetBrushColor(color);
         }
 
         private void Deselect()
         {
-            ScaleTween(DEFAULT_SCALE, 0.2f);
+            ScaleTween(DEFAULT_SCALE, 0.1f);
         }
 
         private void ScaleTween(float endValue, float duration)

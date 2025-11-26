@@ -11,7 +11,7 @@ namespace Game.Runtime
         private Coroutine _finalCo;
         
         private const float TRANSITION_DELAY = 1.25f;
-        private const float LOAD_DELAY = 1f;
+        private const float LOAD_DELAY = 0.5f;
         
         public override void Enter()
         {
