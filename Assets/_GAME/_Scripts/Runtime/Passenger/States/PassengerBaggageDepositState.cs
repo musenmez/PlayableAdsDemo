@@ -23,6 +23,7 @@ namespace Game.Runtime
             var target = _station.GetPassengerLineTarget(_lineInfo);
             var position = target.position + spacing * _lineInfo.Direction;
             Passenger.Movement.MoveTowards(position, Time.deltaTime);
+            Passenger.Movement.RotateTowards(position - _lineInfo.Direction, Time.deltaTime);
         }
 
         public override void CompleteStation()
