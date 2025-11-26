@@ -1,8 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PaintIn3D;
-using TMPro;
 using UnityEngine.UI;
 
 namespace Game.Runtime
@@ -13,6 +13,11 @@ namespace Game.Runtime
         [SerializeField] private P3dPaintDecal paintDecal;
         [SerializeField] private P3dHitScreen hitScreen;
         [SerializeField] private Slider brushSizeSlider;
+
+        private void Start()
+        {
+            SetBrushSize(brushSizeSlider.value);
+        }
 
         protected override void OnEnable()
         {
