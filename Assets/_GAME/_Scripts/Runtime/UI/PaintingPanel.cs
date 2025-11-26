@@ -29,6 +29,11 @@ namespace Game.Runtime
         {
             paintDecal.Color = color;
         }
+
+        public void CompletePainting()
+        {
+            GameManager.Instance.SetState(GameStateId.Final);
+        }
         
         private void SetBrushSize(float size)
         {

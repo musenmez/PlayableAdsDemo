@@ -4,11 +4,8 @@ using UnityEngine;
 
 namespace Game.Runtime
 {
-    public enum PanelId
+    public class TransitionPanel : PanelBase
     {
-        None = 0,
-        Currency = 1,
-        Painting = 2,
-        Transition = 3
+        
     }
 }

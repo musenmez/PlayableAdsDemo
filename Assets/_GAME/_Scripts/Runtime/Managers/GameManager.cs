@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,13 +12,15 @@ namespace Game.Runtime
         public GameStateId CurrentStateId { get; private set; }
         public UnityEvent<GameStateId> OnGameStateChanged { get; } = new();
         public UnityEvent OnLevelStarted { get; } = new();
+        public UnityEvent OnLevelCompleted { get; } = new();
 
         public Dictionary<GameStateId, GameStateBase> StatesById { get; private set; } = new()
         {
             { GameStateId.Initial, new InitialState() },
             { GameStateId.InGame, new InGameState() },
             { GameStateId.SecondFloorReveal, new SecondFloorRevealState() },
-            { GameStateId.Painting, new PaintingState() }
+            { GameStateId.Painting, new PaintingState() },
+            { GameStateId.Final, new FinalState() }
         };
 
         private void Awake()
@@ -38,6 +41,12 @@ namespace Game.Runtime
             CurrentState = StatesById[stateId];
             CurrentState.Enter();
             OnGameStateChanged.Invoke(CurrentStateId);
+        }
+        
+        [Button]
+        private void SetPaintingState()
+        {
+            SetState(GameStateId.Painting);
         }
     }
 }

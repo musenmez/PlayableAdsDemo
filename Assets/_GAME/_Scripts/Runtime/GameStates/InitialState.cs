@@ -30,7 +30,10 @@ namespace Game.Runtime
             CurrencyManager.Instance.Initialize();
             TaskManager.Instance.Initialize();
             yield return new WaitForSeconds(INITIAL_DELAY);
-            DOVirtual.DelayedCall(0.1f, () => GameManager.Instance.SetState(GameStateId.InGame));
+
+            UIManager.Instance.HidePanel(PanelId.Transition);
+            GameManager.Instance.OnLevelStarted.Invoke();
+            GameManager.Instance.SetState(GameStateId.InGame);
         }
     }
 }
