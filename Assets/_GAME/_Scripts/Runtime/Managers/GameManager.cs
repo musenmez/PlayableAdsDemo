@@ -9,13 +9,15 @@ namespace Game.Runtime
     {
         public GameStateBase CurrentState { get; private set; }
         public GameStateId CurrentStateId { get; private set; }
+        public UnityEvent<GameStateId> OnGameStateChanged { get; } = new();
         public UnityEvent OnLevelStarted { get; } = new();
 
         public Dictionary<GameStateId, GameStateBase> StatesById { get; private set; } = new()
         {
             { GameStateId.Initial, new InitialState() },
             { GameStateId.InGame, new InGameState() },
-            { GameStateId.SecondFloorReveal, new SecondFloorRevealState() }
+            { GameStateId.SecondFloorReveal, new SecondFloorRevealState() },
+            { GameStateId.Painting, new PaintingState() }
         };
 
         private void Awake()
@@ -35,6 +37,7 @@ namespace Game.Runtime
             CurrentStateId = stateId;
             CurrentState = StatesById[stateId];
             CurrentState.Enter();
+            OnGameStateChanged.Invoke(CurrentStateId);
         }
     }
 }

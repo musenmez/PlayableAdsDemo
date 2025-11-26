@@ -36,10 +36,7 @@ namespace Game.Runtime
 
         public void AddPanel(IPanel panel)
         {
-            if (PanelsById.ContainsKey(panel.PanelId))
-                return;
-
-            PanelsById.Add(panel.PanelId, panel);
+            PanelsById.TryAdd(panel.PanelId, panel);
         }
 
         public void RemovePanel(IPanel panel)

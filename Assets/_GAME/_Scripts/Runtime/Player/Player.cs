@@ -15,6 +15,7 @@ namespace Game.Runtime
         [field : SerializeField] public PlayerAnimator Animator { get; private set; }
         [field : SerializeField] public PlayerMovement Movement { get; private set; }
         [field : SerializeField] public PlayerBaggageHandler BaggageHandler { get; private set; }
+        [field : SerializeField] public PlayerPaintingAreaHandler PaintingAreaHandler { get; private set; }
 
         private void Awake()
         {

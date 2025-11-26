@@ -7,6 +7,7 @@ namespace Game.Runtime
     public enum PanelId
     {
         None = 0,
-        Currency = 1
+        Currency = 1,
+        Painting = 2
     }
 }
