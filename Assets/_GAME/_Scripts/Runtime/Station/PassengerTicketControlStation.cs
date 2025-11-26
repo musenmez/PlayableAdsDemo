@@ -8,33 +8,8 @@ namespace Game.Runtime
     {
         [Header("Ticket Control Station")]
         [SerializeField] private TicketControlStationPaymentHandler paymentHandler;
-        
-        private Coroutine _progressCo;
 
-        private readonly WaitForSeconds DELAY = new WaitForSeconds(0.5f);
-
-        protected override void StartStation()
-        {
-            StopProgressing();
-            _progressCo = StartCoroutine(ProgressCo());
-        }
-
-        protected override void StopStation()
-        {
-            base.StopStation();
-            StopProgressing();
-        }
-
-        private IEnumerator ProgressCo()
-        {
-            while (true)
-            {
-                ApprovePassenger();
-                yield return DELAY;
-            }
-        }
-
-        private void ApprovePassenger()
+        protected override void StationBehaviour()
         {
             if (!Airplane.Instance.IsAvailable)
                 return;
@@ -54,12 +29,6 @@ namespace Game.Runtime
                 return;
             
             TaskManager.Instance.CompleteTask(this);
-        }
-
-        private void StopProgressing()
-        {
-            if (_progressCo != null)
-                StopCoroutine(_progressCo);
         }
     }
 }

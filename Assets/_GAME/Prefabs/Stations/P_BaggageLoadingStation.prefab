@@ -41,7 +41,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8130005955781776547, guid: 9053573aae13f084ebdec20844a5b4a3, type: 3}
       propertyPath: m_Name
-      value: P_BaggageLoadingStation_1
+      value: P_BaggageLoadingStation
       objectReference: {fileID: 0}
     - target: {fileID: 8678502285843718448, guid: 9053573aae13f084ebdec20844a5b4a3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -116,9 +116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2983bc51b0863cd48b359e2140fa5c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <StationId>k__BackingField: 3
-  <TaskId>k__BackingField: 4
+  <TaskFloorType>k__BackingField: 0
   <IndicatorTarget>k__BackingField: {fileID: 5815026958870765183}
+  <StationId>k__BackingField: 3
+  progressDelay: 0.6
   trayEndPoint: {fileID: 5887939877201993276}
   truck: {fileID: 0}
   defaultHeight: 0.3

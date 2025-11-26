@@ -6,32 +6,7 @@ namespace Game.Runtime
 {
     public class BaggageAdmissionStation : PassengerStationBase
     {
-        private Coroutine _progressCo;
-
-        private readonly WaitForSeconds DELAY = new WaitForSeconds(0.5f);
-        
-        protected override void StartStation()
-        {
-            StopProgressing();
-            _progressCo = StartCoroutine(ProgressCo());
-        }
-
-        protected override void StopStation()
-        {
-            base.StopStation();
-            StopProgressing();
-        }
-
-        private IEnumerator ProgressCo()
-        {
-            while (true)
-            {
-                DepositBaggage();
-                yield return DELAY;
-            }
-        }
-
-        private void DepositBaggage()
+        protected override void StationBehaviour()
         {
             var passenger = GetAvailablePassenger();
             if (passenger is null)
@@ -48,12 +23,6 @@ namespace Game.Runtime
                 return;
             
             TaskManager.Instance.CompleteTask(this);
-        }
-
-        private void StopProgressing()
-        {
-            if(_progressCo != null)
-                StopCoroutine(_progressCo);
         }
     }
 }

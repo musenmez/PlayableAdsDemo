@@ -13,10 +13,8 @@ namespace Game.Runtime
 
         private const float BAGGAGE_SPACING = 0.625f;
         private const float SCALE_EFFECT_DELAY = 0.05f;
-        private readonly WaitForSeconds DELAY = new WaitForSeconds(0.5f);
 
         private PlayerBaggageHandler _baggageHandler;
-        private Coroutine _progressCo;
         
         /// <summary>
         /// Returns null if baggage placement is not finished
@@ -34,27 +32,11 @@ namespace Game.Runtime
         
         protected override void StartStation()
         {
-            StopProgressing();
             _baggageHandler = Player.Instance.BaggageHandler;
-            _progressCo = StartCoroutine(ProgressCo());
-        }
-
-        protected override void StopStation()
-        {
-            base.StopStation();
-            StopProgressing();
-        }
-
-        private IEnumerator ProgressCo()
-        {
-            while (true)
-            {
-                LoadTray();
-                yield return DELAY;
-            }
+            base.StartStation();
         }
         
-        private void LoadTray()
+        protected override void StationBehaviour()
         {
             var baggagePair = _baggageHandler.PopBaggage();
             if (baggagePair == null)
@@ -107,12 +89,6 @@ namespace Game.Runtime
             
             StopProgressing();
             TaskManager.Instance.CompleteTask(this);
-        }
-        
-        private void StopProgressing()
-        {
-            if(_progressCo != null)
-                StopCoroutine(_progressCo);
         }
     }
 }

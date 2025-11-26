@@ -19,33 +19,15 @@ namespace Game.Runtime
         [Space, SerializeField] private Transform platformMovementBody;
         [SerializeField] private Transform platformBaggageHolder;
         
-        private readonly WaitForSeconds DELAY = new WaitForSeconds(0.6f);
-        private Coroutine _progressCo;
         private BaggageTrayStation _trayStation;
         
         protected override void StartStation()
         {
             _trayStation = StationManager.Instance.GetStation(StationId.BaggageTray) as BaggageTrayStation;
-            StopProgressing();
-            _progressCo = StartCoroutine(ProgressCo());
+            base.StartStation();
         }
 
-        protected override void StopStation()
-        {
-            base.StopStation();
-            StopProgressing();
-        }
-
-        private IEnumerator ProgressCo()
-        {
-            while (true)
-            {
-                LoadTruck();
-                yield return DELAY;
-            }
-        }
-
-        private void LoadTruck()
+        protected override void StationBehaviour()
         {
             if (!truck.IsAvailable) return;
 
@@ -76,12 +58,6 @@ namespace Game.Runtime
                 return;
             
             TaskManager.Instance.CompleteTask(this);
-        }
-        
-        private void StopProgressing()
-        {
-            if(_progressCo != null)
-                StopCoroutine(_progressCo);
         }
     }
 }

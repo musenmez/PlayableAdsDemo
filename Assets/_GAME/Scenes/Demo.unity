@@ -7961,7 +7961,7 @@ MonoBehaviour:
   async: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 9114725993252616969}
-  cooldown: -895.99554
+  cooldown: -921.47296
   currentReader:
     dirty: 0
     requested: 0

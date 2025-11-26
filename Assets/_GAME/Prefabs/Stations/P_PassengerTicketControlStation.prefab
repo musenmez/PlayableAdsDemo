@@ -229,6 +229,7 @@ MonoBehaviour:
   <TaskFloorType>k__BackingField: 1
   <IndicatorTarget>k__BackingField: {fileID: 5815026958870765183}
   <StationId>k__BackingField: 4
+  progressDelay: 0.5
   lineStartPoint: {fileID: 2385608013221897017}
   lineDirection: {x: -1, y: 0, z: 0}
   lineSpacing: 3

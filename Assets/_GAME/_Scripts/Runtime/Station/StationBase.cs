@@ -12,7 +12,11 @@ namespace Game.Runtime
         public bool IsWorking { get; private set; }
         
         [field : Header("Station Settings"), SerializeField] public StationId StationId { get; protected set; }
-
+        [SerializeField] protected float progressDelay = 0.5f;
+        
+        private Coroutine _progressCo;
+        private WaitForSeconds _progressDelay;
+        
         public virtual void Interact(Interactor interactor)
         {
             if (IsWorking || !IsInteractable) 
@@ -30,10 +34,6 @@ namespace Game.Runtime
             IsWorking = false;
             StopStation();
         }
-
-        protected abstract void StartStation();
-        
-        protected virtual void StopStation(){}
         
         public override void ActivateTask()
         {
@@ -46,5 +46,34 @@ namespace Game.Runtime
             IsInteractable = false;
             base.DeactivateTask();
         }
+        
+        protected virtual void StartStation()
+        {
+            StopProgressing();
+            _progressDelay = new WaitForSeconds(progressDelay);
+            _progressCo = StartCoroutine(ProgressCo());
+        }
+
+        protected virtual void StopStation()
+        {
+            StopProgressing();
+        }
+
+        protected virtual IEnumerator ProgressCo()
+        {
+            while (true)
+            {
+                StationBehaviour();
+                yield return _progressDelay;
+            }
+        }
+        
+        protected virtual void StopProgressing()
+        {
+            if (_progressCo != null)
+                StopCoroutine(_progressCo);
+        }
+
+        protected abstract void StationBehaviour();
     }
 }
